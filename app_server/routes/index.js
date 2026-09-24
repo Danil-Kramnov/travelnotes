@@ -1,9 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express'); 
+const router = express.Router(); 
+const ctrlRegister = require('../controllers/registerController'); 
+const ctrlLogin = require('../controllers/loginController'); 
+const ctrlDashboard = require('../controllers/dashboardController'); 
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/register', ctrlRegister.index); 
+router.get('/login', ctrlLogin.index); 
+router.get('/dashboard', ctrlDashboard.index);
+ 
+router.get('/', (req, res) => res.redirect('/login')); 
 
 module.exports = router;
