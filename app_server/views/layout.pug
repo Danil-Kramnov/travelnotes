@@ -2,6 +2,18 @@ doctype html
 html
   head
     title= title
+    //- Bootstrap 4.1.1 CDN //- Footer design from https://bootsnipp.com/snippets/lGEO2 
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css') 
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     block content
+    // All html to pug conversion was done by this tool: https://html-to-pug.com/ //
+    footer.bottom.section-padding
+      .container
+        .row
+          .col-md-12.text-center
+            .copyright
+              p © #{new Date().getFullYear()} TravelNotes — All rights reserved.
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js') 
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
