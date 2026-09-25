@@ -1,4 +1,24 @@
 extends layout
 
 block content
-  h1= title
+  //- Login card adapted from: https://bootsnipp.com/snippets/z8l2X
+  .container
+    .row
+      .col-md-5.mx-auto
+        .myform
+          .logo.mb-3
+            .col-md-12.text-center
+              h1 Login
+          form(action='/login', method='POST', name='login')
+            .form-group
+              label(for='email') Email address
+              input#email.form-control(type='email', name='email', placeholder='Enter email')
+            .form-group
+              label(for='password') Password
+              input#password.form-control(type='password', name='password', placeholder='Enter password')
+            .col-md-12.text-center
+              button.btn.btn-block.mybtn.btn-success.tx-tfm(type='submit') Login
+            .form-group
+              p.text-center
+                | Don't have an account?
+                a(href='/register') Sign up here

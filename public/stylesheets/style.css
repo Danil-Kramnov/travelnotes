@@ -26,3 +26,24 @@ a:hover {
   font-size: 16px;
   font-weight: 400;
 }
+
+.myform {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 3rem auto 0;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 1.1rem;
+}
+
+.tx-tfm {
+  text-transform: uppercase;
+}
+
+.mybtn {
+  border-radius: 50px;
+}
