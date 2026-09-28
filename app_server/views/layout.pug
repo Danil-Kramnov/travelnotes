@@ -2,10 +2,12 @@ doctype html
 html
   head
     title= title
-    //- Bootstrap 4.1.1 CDN //- Footer design from https://bootsnipp.com/snippets/lGEO2 
+    // Footer design from https://bootsnipp.com/snippets/lGEO2 
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css') 
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    block navbar 
+
     block content
     // All html to pug conversion was done by this tool: https://html-to-pug.com/ //
     footer.bottom.section-padding

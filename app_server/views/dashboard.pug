@@ -1,4 +1,49 @@
-extends layout
+extends layout 
+//- Bootstrap components used: navbar, card, list-group, badge, form-row grid (https://getbootstrap.com/docs/4.1/components/navbar/#how-it-works)
+block navbar
+  nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    a.navbar-brand(href='/dashboard') TravelNotes
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarContent', aria-controls='navbarContent', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarContent.collapse.navbar-collapse
+      span.navbar-text.text-white.ml-auto Hi, Daniel
 
 block content
-  h1= title
+    //- Card visual styling: https://bootsnipp.com/snippets/67z63
+
+    .card.mb-3
+      .card-header
+        strong Ireland
+      .card-body
+        h5.mt-2 Tralee
+        ul.list-group.mb-3
+          li.list-group-item.d-flex.justify-content-between.align-items-start
+            div
+              div
+                strong Blennerville Windmill
+                small.text-muted  · Landmark
+              div.text-muted Great little museum, windy day
+            span.badge.badge-primary Visited
+          li.list-group-item.d-flex.justify-content-between.align-items-start
+            div
+              div
+                strong Siamsa Tíre
+                small.text-muted  · Theatre
+              div.text-muted.font-italic no note yet
+            span.badge.badge-warning Planned
+
+    .card.mt-4
+      .card-body
+        h5.card-title Add a note
+        form(action='/notes', method='POST')
+          .form-row
+            .form-group.col-md-6
+              label(for='noteTitle') Title
+              input#noteTitle.form-control(type='text', name='title', placeholder='Title')
+            .form-group.col-md-6
+              label(for='noteRating') Rating (1–5)
+              input#noteRating.form-control(type='number', name='rating', min='1', max='5', placeholder='e.g. 4')
+          .form-group
+            label(for='noteText') Notes
+            textarea#noteText.form-control(name='text', rows='3', placeholder='Write your note...')
+          button.btn.btn-success(type='submit') Save note
