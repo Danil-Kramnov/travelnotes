@@ -5,8 +5,9 @@ block navbar
     a.navbar-brand(href='/dashboard') TravelNotes
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarContent', aria-controls='navbarContent', aria-expanded='false', aria-label='Toggle navigation')
       span.navbar-toggler-icon
-    #navbarContent.collapse.navbar-collapse
-      span.navbar-text.text-white.ml-auto Hi, Daniel
+    #navbarContent.collapse.navbar-collapse.justify-content-end
+      span.navbar-text.text-white.mr-3 Hi, Daniel
+      a.btn.btn-outline-light.btn-sm(href='/login') Logout
 
 block content
     //- Card visual styling: https://bootsnipp.com/snippets/67z63

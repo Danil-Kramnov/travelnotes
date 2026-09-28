@@ -1,21 +1,25 @@
 doctype html
 html
   head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title= title
-    // Footer design from https://bootsnipp.com/snippets/lGEO2 
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css') 
+    //- Footer design from https://bootsnipp.com/snippets/lGEO2
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block navbar 
 
-    block content
-    // All html to pug conversion was done by this tool: https://html-to-pug.com/ //
-    footer.bottom.section-padding
+    //- All html to pug conversion done by this: https://html-to-pug.com/
+  body.d-flex.flex-column.min-vh-100
+    block navbar
+
+    main.flex-grow-1
+      block content
+
+    footer.bottom.section-padding.bg-dark
       .container
         .row
           .col-md-12.text-center
             .copyright
               p © #{new Date().getFullYear()} TravelNotes — All rights reserved.
 
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js') 
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
