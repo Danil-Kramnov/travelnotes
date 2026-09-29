@@ -8,6 +8,9 @@ router.get('/register', ctrlRegister.index);
 router.get('/login', ctrlLogin.index); 
 router.get('/dashboard', ctrlDashboard.index);
  
-router.get('/', (req, res) => res.redirect('/login')); 
+router.get('/', (req, res) => res.redirect('/login'));
+
+router.post('/login', (req, res) => res.redirect('/dashboard'));
+router.post('/register', (req, res) => res.redirect('/dashboard'));
 
 module.exports = router;

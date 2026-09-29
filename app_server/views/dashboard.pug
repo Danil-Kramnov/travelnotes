@@ -12,26 +12,28 @@ block navbar
 block content
     //- Card visual styling: https://bootsnipp.com/snippets/67z63
 
-    .card.mb-3
-      .card-header
-        strong Ireland
-      .card-body
-        h5.mt-2 Tralee
-        ul.list-group.mb-3
-          li.list-group-item.d-flex.justify-content-between.align-items-start
-            div
-              div
-                strong Blennerville Windmill
-                small.text-muted  · Landmark
-              div.text-muted Great little museum, windy day
-            span.badge.badge-primary Visited
-          li.list-group-item.d-flex.justify-content-between.align-items-start
-            div
-              div
-                strong Siamsa Tíre
-                small.text-muted  · Theatre
-              div.text-muted.font-italic no note yet
-            span.badge.badge-warning Planned
+    .container.mt-4
+    h2.mb-3 My Destinations
+
+    each country in countries
+      .card.mb-3
+        .card-header
+          strong= country.name
+        .card-body
+          each city in country.cities
+            h5.mt-2= city.name
+            ul.list-group.mb-3
+              each place in city.places
+                li.list-group-item.d-flex.flex-column.flex-sm-row.justify-content-between.align-items-start
+                  div
+                    div
+                      strong= place.name
+                      small.text-muted= ' · ' + place.category
+                    if place.note
+                      div.text-muted= place.note
+                    else
+                      div.text-muted.font-italic no note yet
+                  span.badge(class=place.status === 'Visited' ? 'badge-primary' : 'badge-warning')= place.status
 
     .card.mt-4
       .card-body
