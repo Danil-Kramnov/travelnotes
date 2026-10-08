@@ -7,3 +7,7 @@ mongoose
   .connect(dbURI)
   .then(() => console.log('Mongoose is connected'))
   .catch((err) => console.log('Mongoose connection error:', err));
+
+
+require('./users');
+require('./countries');
