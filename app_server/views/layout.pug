@@ -6,12 +6,10 @@ html
     //- Footer design from https://bootsnipp.com/snippets/lGEO2
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-
-    //- All html to pug conversion done by this: https://html-to-pug.com/
-  body.d-flex.flex-column.min-vh-100
+  body
     block navbar
 
-    main.flex-grow-1
+    main
       block content
 
     footer.bottom.section-padding.bg-dark
