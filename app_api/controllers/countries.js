@@ -44,7 +44,22 @@ const countriesReadOne = function (req, res) {
     });
 };
 
+const countriesCreate = (req, res) => {
+  if (!req.body.name) {
+    return res.status(400).json({ message: 'name is required' });
+  }
+  Country.create({ name: req.body.name, cities: [] })
+    .then(country => res.status(201).json(country))
+    .catch(err => {
+      if (err.name === 'ValidationError') {
+        return res.status(400).json({ message: 'Validation failed' });
+      }
+      res.status(500).json({ message: 'Error creating country' });
+    });
+};
+
 module.exports = {
   countriesList,
   countriesReadOne,
+  countriesCreate
 };
