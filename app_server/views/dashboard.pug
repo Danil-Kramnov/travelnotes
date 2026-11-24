@@ -8,7 +8,9 @@ block navbar
     #navbarContent.collapse.navbar-collapse.justify-content-end
       span.navbar-text.text-white.mr-3 Hi, Daniel
       a.btn.btn-outline-light.btn-sm(href='/login') Logout
-
+    if error
+      .alert.alert-danger= error
+      
 block content
     //- Card visual styling: https://bootsnipp.com/snippets/67z63
 

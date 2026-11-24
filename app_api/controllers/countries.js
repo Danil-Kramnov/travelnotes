@@ -43,7 +43,7 @@ const countriesReadOne = function (req, res) {
         .json({ message: 'Error retrieving country' });
     });
 };
-
+// POST method for creating a new country
 const countriesCreate = (req, res) => {
   if (!req.body.name) {
     return res.status(400).json({ message: 'name is required' });

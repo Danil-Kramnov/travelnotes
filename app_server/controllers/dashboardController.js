@@ -1,47 +1,25 @@
-const index = function (req, res) {
-  const countries = [
-    {
-      name: 'Ireland',
-      cities: [
-        {
-          name: 'Tralee',
-          places: [
-            {
-              name: 'Blennerville Windmill',
-              category: 'Landmark',
-              status: 'Visited',
-              note: 'Great little museum, windy day',
-            },
-            {
-              name: 'Siamsa Tíre',
-              category: 'Theatre',
-              status: 'Planned',
-              note: null,
-            },
-          ],
-        },
-        {
-          name: 'Dublin',
-          places: [
-            {
-              name: 'Trinity College Library',
-              category: 'Landmark',
-              status: 'Planned',
-              note: null,
-            },
-            {
-              name: 'Guinness Storehouse',
-              category: 'Museum',
-              status: 'Visited',
-              note: 'Busy but worth it for the rooftop view',
-            },
-          ],
-        },
-      ],
-    },
-  ];
+// taken from: https://axios-http.com/docs/example
+const axios = require('axios');
 
-  res.render('dashboard', { title: 'Dashboard', countries });
+const apiUrl = process.env.API_URL || 'http://localhost:' + (process.env.PORT || 3000);
+
+const index = (req, res) => {
+  axios
+    .get(apiUrl + '/api/countries')
+    .then(response => {
+      res.render('dashboard', {
+        title: 'Dashboard',
+        countries: response.data
+      });
+    })
+    .catch(err => {
+      console.log('API call failed:', err.message);
+      res.render('dashboard', {
+        title: 'Dashboard',
+        countries: [],
+        error: 'Could not load countries'
+      });
+    });
 };
 
-module.exports = { index, };
+module.exports = { index };

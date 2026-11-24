@@ -8,5 +8,6 @@ router.route('/register').post(ctrlAuth.register);
 router.route('/login').post(ctrlAuth.login);
 router.route('/countries').get(ctrlCountries.countriesList);
 router.route('/countries/:countryid').get(ctrlCountries.countriesReadOne);
+router.route('/countries').post(ctrlCountries.countriesCreate);
 
 module.exports = router;
